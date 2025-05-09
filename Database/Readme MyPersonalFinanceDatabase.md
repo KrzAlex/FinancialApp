@@ -1,10 +1,12 @@
 Sources and Documentation:
+
     https://help.alwaysdata.com/en/sites/
     https://help.alwaysdata.com/en/databases/mariadb/
 
 
 
 Basic Informations:
+
     - Server name               mysql-mypersonalfinance.alwaysdata.net
     - Database name 	        mypersonalfinance_database
     - Port	                    3306

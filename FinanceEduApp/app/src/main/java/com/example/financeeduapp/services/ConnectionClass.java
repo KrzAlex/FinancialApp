@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 public class ConnectionClass {
 
     protected static String db ="ErasmusDev_Database";
-    protected static String ip ="192.168.42.174";
+    protected static String ip ="192.168.107.174";
     protected static String port ="3306";
     protected static String username ="erasmusroot";
     protected static String password ="admin";

@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
             });
-        });
+         });
     }
 }
 

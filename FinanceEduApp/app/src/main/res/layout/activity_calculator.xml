@@ -40,13 +40,21 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"/>
 
+        <!-- ✅ NEW TEXTVIEWS FOR OUTPUT -->
         <TextView
-            android:id="@+id/textResult"
+            android:id="@+id/textTotalAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:textStyle="bold"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/textTotalInterest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp" />
 
     </LinearLayout>
 </ScrollView>

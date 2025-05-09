@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.financeeduapp">
-    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -27,16 +26,18 @@
         <!-- Placeholder activity -->
         <activity android:name=".MainActivity" />
 
-        <!--compount int calculator -->
+        <!-- Compound interest calculator -->
         <activity android:name=".activities.CalculatorActivity" />
 
-        <!-- PROFILE -->
+        <!-- Profile -->
         <activity android:name=".activities.ProfileActivity" />
-        <!-- SETTINGS -->
+
+        <!-- Settings -->
         <activity android:name=".activities.SettingsActivity" />
 
+        <!-- ✅ Forgot Password Activity -->
+        <activity android:name=".activities.ForgotPasswordActivity" />
 
     </application>
 
 </manifest>
-

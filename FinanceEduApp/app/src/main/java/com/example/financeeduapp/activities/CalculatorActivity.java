@@ -1,21 +1,29 @@
 package com.example.financeeduapp.activities;
-import android.view.View;
-import android.widget.AdapterView;
+
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.*;
-import java.util.Locale;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.financeeduapp.R;
+import com.example.financeeduapp.utils.LocaleHelper;
+
+import java.util.Locale;
 
 public class CalculatorActivity extends AppCompatActivity {
 
     private EditText editPrincipal, editRate, editTime;
     private Spinner frequencySpinner;
-    private TextView resultView;
+    private TextView textTotalAmount, textTotalInterest;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.loadLocale(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +34,14 @@ public class CalculatorActivity extends AppCompatActivity {
         editRate = findViewById(R.id.editRate);
         editTime = findViewById(R.id.editTime);
         frequencySpinner = findViewById(R.id.spinnerFrequency);
-        resultView = findViewById(R.id.textResult);
+        textTotalAmount = findViewById(R.id.textTotalAmount);
+        textTotalInterest = findViewById(R.id.textTotalInterest);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.frequency_options, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.frequency_options,
+                android.R.layout.simple_spinner_item
+        );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         frequencySpinner.setAdapter(adapter);
 
@@ -44,6 +56,7 @@ public class CalculatorActivity extends AppCompatActivity {
         editPrincipal.addTextChangedListener(watcher);
         editRate.addTextChangedListener(watcher);
         editTime.addTextChangedListener(watcher);
+
         frequencySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 calculateInterest();
@@ -58,7 +71,8 @@ public class CalculatorActivity extends AppCompatActivity {
         String timeStr = editTime.getText().toString();
 
         if (principalStr.isEmpty() || rateStr.isEmpty() || timeStr.isEmpty()) {
-            resultView.setText("");
+            textTotalAmount.setText("");
+            textTotalInterest.setText("");
             return;
         }
 
@@ -71,12 +85,13 @@ public class CalculatorActivity extends AppCompatActivity {
             case "Quarterly": n = 4; break;
             case "Monthly": n = 12; break;
             case "Daily": n = 365; break;
-            default: n = 1;
+            default: n = 1; // Yearly
         }
 
         double amount = principal * Math.pow((1 + rate / n), n * time);
-        resultView.setText(String.format(Locale.getDefault(), "Final Amount: %.2f", amount));
+        double interest = amount - principal;
 
-
+        textTotalAmount.setText(String.format(Locale.getDefault(), "%s: %.2f", getString(R.string.total_amount), amount));
+        textTotalInterest.setText(String.format(Locale.getDefault(), "%s: %.2f", getString(R.string.total_interest), interest));
     }
 }

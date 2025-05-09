@@ -10,6 +10,13 @@
     <string name="login_success">Giriş başarılı</string>
     <string name="login_failed">E-posta veya şifre hatalı</string>
 
+    <string name="forgot_password">Şifrenizi mi unuttunuz?</string>
+    <string name="reset_password_title">Şifrenizi Sıfırlayın</string>
+    <string name="reset_email_hint">E-posta adresinizi girin</string>
+    <string name="reset_button">Şifreyi Sıfırla</string>
+    <string name="reset_success">Eğer e-posta mevcutsa, bir sıfırlama bağlantısı gönderildi.</string>
+    <string name="reset_error">Lütfen geçerli bir e-posta adresi girin</string>
+
     <!-- HOME PAGE STRINGS -->
     <string name="button_quiz">Teste Başla</string>
     <string name="button_lessons">Dersler</string>
@@ -25,6 +32,9 @@
     <string name="rate_hint">Yıllık Faiz Oranı (%)</string>
     <string name="time_hint">Zaman (yıl)</string>
     <string name="calculator_clicked">Hesaplayıcı düğmesine tıklandı</string>
+    <string name="total_amount">Toplam Tutar</string>
+    <string name="total_interest">Kazanılan Toplam Faiz</string>
+
     <string-array name="frequency_options">
         <item>Yıllık</item>
         <item>Üç Aylık</item>
@@ -59,6 +69,7 @@
     <string name="enter_new_password">Yeni şifre girin</string>
     <string name="save_changes">Değişiklikleri Kaydet</string>
     <string name="language_changed">Dil değiştirildi</string>
+    <string name="logout_button">Oturumu Kapat</string>
 
 
 

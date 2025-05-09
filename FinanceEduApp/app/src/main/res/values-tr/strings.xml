@@ -1,0 +1,78 @@
+<resources>
+    <!-- Login Page Strings -->
+    <string name="app_name">FinanceEduApp</string>
+    <string name="login_title">FinanceEduApp\'a Giriş Yap</string>
+    <string name="email_hint">E-posta</string>
+    <string name="password_hint">Şifre</string>
+    <string name="login_button">Giriş Yap</string>
+    <string name="invalid_email_error">Geçerli bir e-posta girin</string>
+    <string name="empty_password_error">Şifre boş olamaz</string>
+    <string name="login_success">Giriş başarılı</string>
+    <string name="login_failed">E-posta veya şifre hatalı</string>
+
+    <string name="forgot_password">Şifrenizi mi unuttunuz?</string>
+    <string name="reset_password_title">Şifrenizi Sıfırlayın</string>
+    <string name="reset_email_hint">E-posta adresinizi girin</string>
+    <string name="reset_button">Şifreyi Sıfırla</string>
+    <string name="reset_success">Eğer e-posta mevcutsa, bir sıfırlama bağlantısı gönderildi.</string>
+    <string name="reset_error">Lütfen geçerli bir e-posta adresi girin</string>
+
+    <!-- HOME PAGE STRINGS -->
+    <string name="button_quiz">Teste Başla</string>
+    <string name="button_lessons">Dersler</string>
+    <string name="button_profile">Profil</string>
+    <string name="button_settings">Ayarlar</string>
+    <string name="button_calculator">Bileşik Faiz Hesaplayıcı</string>
+    <string name="quiz_clicked">Test düğmesine tıklandı</string>
+    <string name="lessons_clicked">Dersler düğmesine tıklandı</string>
+    <string name="settings_clicked">Ayarlar düğmesine tıklandı</string>
+
+    <!-- CALCULATOR STRINGS -->
+    <string name="principal_hint">Anapara</string>
+    <string name="rate_hint">Yıllık Faiz Oranı (%)</string>
+    <string name="time_hint">Zaman (yıl)</string>
+    <string name="calculator_clicked">Hesaplayıcı düğmesine tıklandı</string>
+    <string name="total_amount">Toplam Tutar</string>
+    <string name="total_interest">Kazanılan Toplam Faiz</string>
+
+    <string-array name="frequency_options">
+        <item>Yıllık</item>
+        <item>Üç Aylık</item>
+        <item>Aylık</item>
+        <item>Günlük</item>
+    </string-array>
+
+    <!-- PROFILE PAGE STRINGS -->
+    <string name="name_hint">Ad Soyad</string>
+    <string name="save_button">Kaydet</string>
+    <string name="name_error">İsim boş bırakılamaz</string>
+    <string name="email_error">Geçerli bir e-posta adresi girin</string>
+    <string name="profile_saved">Profil başarıyla güncellendi!</string>
+    <string name="profile_picture">Profil fotoğrafı</string>
+    <string name="profile_clicked">Profil düğmesine tıklandı</string>
+
+    <!-- SETTINGS PAGE STRINGS -->
+    <string name="settings_title">Ayarlar</string>
+    <string name="language_label">Dil Seç</string>
+    <string-array name="languages">
+        <item>English</item>
+        <item>Türkçe</item>
+        <item>Italiano</item>
+        <item>Español</item>
+    </string-array>
+    <!-- Settings Page -->
+    <string name="settings">Ayarlar</string>
+    <string name="select_language">Dil Seç</string>
+    <string name="change_email">E-posta Değiştir</string>
+    <string name="enter_new_email">Yeni e-posta girin</string>
+    <string name="change_password">Şifre Değiştir</string>
+    <string name="enter_new_password">Yeni şifre girin</string>
+    <string name="save_changes">Değişiklikleri Kaydet</string>
+    <string name="language_changed">Dil değiştirildi</string>
+    <string name="logout_button">Oturumu Kapat</string>
+
+
+
+
+</resources>
+

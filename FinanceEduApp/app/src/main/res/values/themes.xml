@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.FinanceEduApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/bluePrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/blueAccent</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <!-- Corrected background line -->
+        <item name="android:windowBackground">@color/lightBackground</item>
+
+        <item name="android:statusBarColor" tools:targetApi="l">@color/bluePrimaryDark</item>
+        <item name="android:navigationBarColor">@color/lightBackground</item>
+    </style>
+
+    <style name="Theme.FinanceEduApp" parent="Base.Theme.FinanceEduApp" />
+</resources>

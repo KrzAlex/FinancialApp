@@ -1,0 +1,75 @@
+<resources>
+    <!-- Login Page Strings -->
+    <string name="app_name">FinanceEduApp</string>
+    <string name="login_title">Iniciar sesión en FinanceEduApp</string>
+    <string name="email_hint">Correo electrónico</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="login_button">Iniciar Sesión</string>
+    <string name="invalid_email_error">Introduce un correo electrónico válido</string>
+    <string name="empty_password_error">La contraseña no puede estar vacía</string>
+    <string name="login_success">Inicio de sesión exitoso</string>
+    <string name="login_failed">Correo o contraseña incorrectos</string>
+
+    <string name="forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="reset_password_title">Restablece tu contraseña</string>
+    <string name="reset_email_hint">Introduce tu correo electrónico</string>
+    <string name="reset_button">Restablecer contraseña</string>
+    <string name="reset_success">Si el correo existe, se ha enviado un enlace para restablecer la contraseña.</string>
+    <string name="reset_error">Por favor, introduce un correo electrónico válido</string>
+
+    <!-- HOME PAGE STRINGS -->
+    <string name="button_quiz">Iniciar Quiz</string>
+    <string name="button_lessons">Lecciones</string>
+    <string name="button_profile">Perfil</string>
+    <string name="button_settings">Configuración</string>
+    <string name="button_calculator">Calculadora de Interés Compuesto</string>
+    <string name="quiz_clicked">¡Botón de quiz presionado!</string>
+    <string name="lessons_clicked">¡Botón de lecciones presionado!</string>
+    <string name="settings_clicked">¡Botón de configuración presionado!</string>
+
+    <!-- CALCULATOR STRINGS -->
+    <string name="principal_hint">Cantidad Principal</string>
+    <string name="rate_hint">Tasa de Interés Anual (%)</string>
+    <string name="time_hint">Tiempo (años)</string>
+    <string name="calculator_clicked">¡Botón de calculadora presionado!</string>
+    <string name="total_amount">Monto Total</string>
+    <string name="total_interest">Interés Total Ganado</string>
+
+    <string-array name="frequency_options">
+        <item>Anual</item>
+        <item>Trimestral</item>
+        <item>Mensual</item>
+        <item>Diario</item>
+    </string-array>
+
+    <!-- PROFILE PAGE STRINGS -->
+    <string name="name_hint">Nombre Completo</string>
+    <string name="save_button">Guardar</string>
+    <string name="name_error">El nombre no puede estar vacío</string>
+    <string name="email_error">Introduce un correo electrónico válido</string>
+    <string name="profile_saved">¡Perfil actualizado exitosamente!</string>
+    <string name="profile_picture">Foto de perfil</string>
+    <string name="profile_clicked">¡Botón de perfil presionado!</string>
+
+    <!-- SETTINGS PAGE STRINGS -->
+    <string name="settings_title">Configuración</string>
+    <string name="language_label">Seleccionar idioma</string>
+    <string-array name="languages">
+        <item>English</item>
+        <item>Türkçe</item>
+        <item>Italiano</item>
+        <item>Español</item>
+    </string-array>
+    <string name="settings">Configuración</string>
+    <string name="select_language">Seleccionar idioma</string>
+    <string name="change_email">Cambiar correo</string>
+    <string name="enter_new_email">Introduce nuevo correo</string>
+    <string name="change_password">Cambiar contraseña</string>
+    <string name="enter_new_password">Introduce nueva contraseña</string>
+    <string name="save_changes">Guardar Cambios</string>
+    <string name="language_changed">Idioma cambiado</string>
+    <string name="logout_button">finalizar la sesión</string>
+
+
+</resources>
+

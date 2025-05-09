@@ -1,10 +1,13 @@
 package com.example.financeeduapp.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -18,13 +21,19 @@ public class SettingsActivity extends AppCompatActivity {
     private boolean isFirstSelection = true;
 
     @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.loadLocale(newBase));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LocaleHelper.loadLocale(this);
         setContentView(R.layout.activity_settings);
 
         Spinner languageSpinner = findViewById(R.id.language_spinner);
+        Button logoutButton = findViewById(R.id.button_logout); // 👈 Add this to your XML
 
+        // Set up language spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
                 R.array.languages,
@@ -33,7 +42,6 @@ public class SettingsActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         languageSpinner.setAdapter(adapter);
 
-        // Set spinner selection based on current locale
         String currentLang = LocaleHelper.getLanguage(this);
         int langIndex = getLanguageIndex(currentLang);
         languageSpinner.setSelection(langIndex);
@@ -51,15 +59,27 @@ public class SettingsActivity extends AppCompatActivity {
                     LocaleHelper.setLocale(SettingsActivity.this, selectedLanguage);
                     Toast.makeText(SettingsActivity.this, getString(R.string.language_changed), Toast.LENGTH_SHORT).show();
 
-                    // Restart activity to apply language
-                    Intent intent = new Intent(SettingsActivity.this, SettingsActivity.class);
+                    Intent intent = new Intent(SettingsActivity.this, LoginActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
-                    finish();
+                    finishAffinity();
                 }
             }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) { }
+            @Override public void onNothingSelected(AdapterView<?> adapterView) { }
+        });
+
+        // ✅ Logout functionality
+        logoutButton.setOnClickListener(v -> {
+            // Clear login session
+            SharedPreferences prefs = getSharedPreferences("UserSession", MODE_PRIVATE);
+            prefs.edit().clear().apply();
+
+            // Redirect to login
+            Intent intent = new Intent(SettingsActivity.this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finishAffinity();
         });
     }
 
@@ -68,7 +88,7 @@ public class SettingsActivity extends AppCompatActivity {
             case "tr": return 1;
             case "it": return 2;
             case "es": return 3;
-            default: return 0; // English
+            default: return 0;
         }
     }
 
@@ -81,4 +101,7 @@ public class SettingsActivity extends AppCompatActivity {
         }
     }
 }
+
+
+
 

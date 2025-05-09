@@ -1,5 +1,6 @@
 package com.example.financeeduapp.activities;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.financeeduapp.R;
+import com.example.financeeduapp.utils.LocaleHelper;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -19,6 +21,12 @@ public class ProfileActivity extends AppCompatActivity {
 
     private String currentName = "John Doe";
     private String currentEmail = "john@example.com";
+
+    // Load correct locale before anything is drawn
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.loadLocale(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +38,7 @@ public class ProfileActivity extends AppCompatActivity {
         buttonSave = findViewById(R.id.buttonSave);
         profileImage = findViewById(R.id.profileImage);
 
-        // Load current profile data
+        // Load current profile data (mock values)
         editName.setText(currentName);
         editEmail.setText(currentEmail);
 
@@ -56,3 +64,4 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 }
+

@@ -1,8 +1,6 @@
 package com.example.financeeduapp.activities;
-import com.example.financeeduapp.activities.CalculatorActivity;
-import com.example.financeeduapp.activities.ProfileActivity;
-import com.example.financeeduapp.activities.SettingsActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -11,10 +9,17 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.financeeduapp.R;
+import com.example.financeeduapp.utils.LocaleHelper;
 
 public class HomeActivity extends AppCompatActivity {
 
     private Button btnQuiz, btnLessons, btnProfile, btnSettings, btnCalculator;
+
+    // Load correct locale before UI is created
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.loadLocale(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +38,6 @@ public class HomeActivity extends AppCompatActivity {
         btnLessons.setOnClickListener(v ->
                 Toast.makeText(this, getString(R.string.lessons_clicked), Toast.LENGTH_SHORT).show());
 
-
         btnProfile.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
             startActivity(intent);
@@ -44,11 +48,9 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-
         btnCalculator.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, CalculatorActivity.class);
             startActivity(intent);
         });
-
     }
 }

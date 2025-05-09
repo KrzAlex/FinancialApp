@@ -30,8 +30,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:minHeight="48dp"
-            android:paddingVertical="12dp" />
+            android:paddingVertical="12dp"
+            android:minHeight="48dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -74,6 +74,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/save_changes" />
+
+        <!-- 🔒 Logout Button Added Below -->
+        <Button
+            android:id="@+id/button_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/logout_button"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 </ScrollView>

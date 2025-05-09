@@ -10,6 +10,13 @@
     <string name="login_success">Accesso riuscito</string>
     <string name="login_failed">Email o password errati</string>
 
+    <string name="forgot_password">Password dimenticata?</string>
+    <string name="reset_password_title">Reimposta la tua password</string>
+    <string name="reset_email_hint">Inserisci il tuo indirizzo email</string>
+    <string name="reset_button">Reimposta password</string>
+    <string name="reset_success">La tua richiesta di reimpostazione è stata inviata con successo.</string>
+    <string name="reset_error">Inserisci un indirizzo email valido</string>
+
     <!-- HOME PAGE STRINGS -->
     <string name="button_quiz">Inizia il Quiz</string>
     <string name="button_lessons">Lezioni</string>
@@ -25,6 +32,9 @@
     <string name="rate_hint">Tasso d\'Interesse Annuale (%)</string>
     <string name="time_hint">Tempo (anni)</string>
     <string name="calculator_clicked">Pulsante calcolatore cliccato</string>
+    <string name="total_amount">Importo Totale</string>
+    <string name="total_interest">Interesse Totale Guadagnato</string>
+
     <string-array name="frequency_options">
         <item>Annuale</item>
         <item>Trimestrale</item>
@@ -58,6 +68,7 @@
     <string name="enter_new_password">Inserisci nuova password</string>
     <string name="save_changes">Salva Modifiche</string>
     <string name="language_changed">Lingua cambiata</string>
+    <string name="logout_button">disconnettersi</string>
 
 
 

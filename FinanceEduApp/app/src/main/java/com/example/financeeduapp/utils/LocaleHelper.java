@@ -1,10 +1,10 @@
 package com.example.financeeduapp.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.Build;
 
 import java.util.Locale;
 
@@ -20,17 +20,23 @@ public class LocaleHelper {
 
         Resources resources = context.getResources();
         Configuration config = resources.getConfiguration();
-        config.setLocale(locale);
-        config.setLayoutDirection(locale);
 
-        return context.createConfigurationContext(config);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            config.setLocale(locale);
+            config.setLayoutDirection(locale);
+            return context.createConfigurationContext(config);
+        } else {
+            config.locale = locale;
+            resources.updateConfiguration(config, resources.getDisplayMetrics());
+            return context;
+        }
     }
 
     public static void saveLanguage(Context context, String language) {
         SharedPreferences prefs = context.getSharedPreferences("AppSettings", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(SELECTED_LANGUAGE, language);
-        editor.apply();
+        editor.commit();
     }
 
     public static String getLanguage(Context context) {
@@ -38,10 +44,10 @@ public class LocaleHelper {
         return prefs.getString(SELECTED_LANGUAGE, Locale.getDefault().getLanguage());
     }
 
-    // This is what was missing
-    public static void loadLocale(Context context) {
+    public static Context loadLocale(Context context) {
         String language = getLanguage(context);
-        setLocale(context, language);
+        return setLocale(context, language);
     }
 }
+
 

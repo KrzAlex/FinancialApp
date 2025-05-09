@@ -1,9 +1,5 @@
 <resources>
 
-    <!-- DataBase Strings -->
-    <string name="error_Con" translatable="false">An Error with the connection happened</string>
-    <string name="good_Con" translatable="false">The connection happened</string>
-
     <!-- Login Page Strings -->
     <string name="app_name">FinanceEduApp</string>
     <string name="login_title">Login to FinanceEduApp</string>
@@ -14,6 +10,14 @@
     <string name="empty_password_error">Password cannot be empty</string>
     <string name="login_success">Login successful</string>
     <string name="login_failed">Incorrect email or password</string>
+
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="reset_password_title">Reset Your Password</string>
+    <string name="reset_email_hint">Enter your email address</string>
+    <string name="reset_button">Reset Password</string>
+    <string name="reset_success">If the email exists, a reset link has been sent.</string>
+    <string name="reset_error">Please enter a valid email address</string>
+
 
     <!-- HOME PAGE STRINGS -->
     <string name="button_quiz">Start Quiz</string>
@@ -30,6 +34,9 @@
     <string name="rate_hint">Annual Interest Rate (%)</string>
     <string name="time_hint">Time (years)</string>
     <string name="calculator_clicked">Calculator button clicked</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="total_interest">Total Interest Earned</string>
+
     <string-array name="frequency_options">
         <item>Yearly</item>
         <item>Quarterly</item>
@@ -57,6 +64,7 @@
     <string name="enter_new_password">Enter new password</string>
     <string name="save_changes">Save Changes</string>
     <string name="language_changed">Language changed</string>
+    <string name="logout_button">Log Out</string>
 
     <string-array name="languages">
         <item>English</item>

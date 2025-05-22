@@ -38,6 +38,8 @@
         <!-- ✅ Forgot Password Activity -->
         <activity android:name=".activities.ForgotPasswordActivity" />
 
+        <activity android:name=".activities.LessonsActivity" />
+
     </application>
 
 </manifest>

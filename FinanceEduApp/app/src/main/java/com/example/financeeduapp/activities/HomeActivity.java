@@ -35,8 +35,11 @@ public class HomeActivity extends AppCompatActivity {
         btnQuiz.setOnClickListener(v ->
                 Toast.makeText(this, getString(R.string.quiz_clicked), Toast.LENGTH_SHORT).show());
 
-        btnLessons.setOnClickListener(v ->
-                Toast.makeText(this, getString(R.string.lessons_clicked), Toast.LENGTH_SHORT).show());
+        btnLessons.setOnClickListener(v -> {
+            Toast.makeText(this, getString(R.string.lessons_clicked), Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(HomeActivity.this, LessonsActivity.class);
+            startActivity(intent);
+        });
 
         btnProfile.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);

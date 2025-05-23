@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
+import android.util.Log; // <-- Add this import
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,10 +13,9 @@ import com.example.financeeduapp.R;
 import com.example.financeeduapp.utils.LocaleHelper;
 
 public class HomeActivity extends AppCompatActivity {
-
+    private static final String TAG = "HomeActivity";
     private Button btnQuiz, btnLessons, btnProfile, btnSettings, btnCalculator;
 
-    // Load correct locale before UI is created
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(LocaleHelper.loadLocale(newBase));
@@ -32,25 +32,33 @@ public class HomeActivity extends AppCompatActivity {
         btnSettings = findViewById(R.id.buttonSettings);
         btnCalculator = findViewById(R.id.buttonCalculator);
 
-        btnQuiz.setOnClickListener(v ->
-                Toast.makeText(this, getString(R.string.quiz_clicked), Toast.LENGTH_SHORT).show());
+        btnQuiz.setOnClickListener(v -> {
+            Log.d(TAG, "Quiz button clicked");
+            try {
+                Intent intent = new Intent(HomeActivity.this, QuizActivity.class);
+                startActivity(intent);
+                Log.d(TAG, "Successfully started QuizActivity");
+            } catch (Exception e) {
+                Log.e(TAG, "Error starting QuizActivity", e);
+                Toast.makeText(this, "Error opening quiz: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
 
-        btnLessons.setOnClickListener(v ->
-                Toast.makeText(this, getString(R.string.lessons_clicked), Toast.LENGTH_SHORT).show());
+        btnLessons.setOnClickListener(v -> {
+            Toast.makeText(this, getString(R.string.lessons_clicked), Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(HomeActivity.this, LessonsActivity.class));
+        });
 
         btnProfile.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
         });
 
         btnSettings.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
         });
 
         btnCalculator.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, CalculatorActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(HomeActivity.this, CalculatorActivity.class));
         });
     }
 }

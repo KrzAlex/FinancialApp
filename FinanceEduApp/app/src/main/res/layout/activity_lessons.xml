@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="Easy" />
+            android:text="Beginner" />
 
         <Button
             android:id="@+id/buttonIntermediate"
@@ -37,8 +37,20 @@
             android:id="@+id/buttonHard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hard" />
+            android:text="Advanced" />
     </LinearLayout>
+
+    <!-- Container for Lesson Topics, initially hidden -->
+    <LinearLayout
+        android:id="@+id/lessonTopicsContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/buttonsContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Mascot Group (Freely Positionable in Design View) -->
     <androidx.constraintlayout.widget.ConstraintLayout

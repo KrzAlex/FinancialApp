@@ -41,6 +41,10 @@
         <activity
             android:name=".activities.CalculatorActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".activities.LessonDetailActivity" />
+
     </application>
 
 </manifest>

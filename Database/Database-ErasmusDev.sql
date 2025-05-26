@@ -4,6 +4,7 @@ CREATE schema ErasmusDev_Database;
 Use ErasmusDev_Database;
 
 DROP TABLE `Attempts`, `Lessons`, `Made`, `Options`, `Posts`, `Questions`, `Quizs`, `refer`, `sessions`, `Sets`, `Users`, `Voices`;
+-- drop table Made,Attempts,Options,Questions,Quizs;
 
 CREATE TABLE Users(
     userId INT AUTO_INCREMENT PRIMARY KEY,
@@ -15,7 +16,6 @@ CREATE TABLE Users(
 
     Email VARCHAR(35) UNIQUE,
     AccountPassword VARCHAR(65) NOT NULL,
-
 
     constraint DomainSex_Constraint check(sex='F' OR sex='M' OR sex='O')
 )ENGINE="InnoDB";
@@ -90,7 +90,10 @@ CREATE TABLE Quizs(
     quizId INT AUTO_INCREMENT PRIMARY KEY,
     quizTitle VARCHAR(100) UNIQUE,
     quizOverview TEXT(1000),
-    quizLevel CHAR(20) NOT NULL
+    quizLevel CHAR(20) NOT NULL,
+
+    lessonId INT NOT NULL,
+    FOREIGN KEY ( lessonId) REFERENCES Lessons(lessonId)
 )ENGINE="InnoDB";
 
 

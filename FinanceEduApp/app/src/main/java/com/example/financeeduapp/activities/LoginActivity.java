@@ -12,9 +12,17 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.financeeduapp.MainActivity;
 import com.example.financeeduapp.R;
+import com.example.financeeduapp.responses.LoginResponse;
+import com.example.financeeduapp.services.ApiService;
+import com.example.financeeduapp.services.RetrofitClient;
 import com.example.financeeduapp.utils.InputValidator;
 import com.example.financeeduapp.utils.LocaleHelper;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -60,8 +68,10 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
+
+            doLogin(email, password, this);
             // ✅ Mock login credentials
-            if (email.equals("arda@gmail.com") && password.equals("1")) {
+           /* if (email.equals("arda@gmail.com") && password.equals("1")) {
                 // ✅ Save session
                 SharedPreferences.Editor editor = getSharedPreferences("UserSession", MODE_PRIVATE).edit();
                 editor.putBoolean("isLoggedIn", true);
@@ -72,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             } else {
                 Toast.makeText(this, getString(R.string.login_failed), Toast.LENGTH_SHORT).show();
-            }
+            }*/
         });
 
         forgotPasswordText.setOnClickListener(v -> {
@@ -84,6 +94,41 @@ public class LoginActivity extends AppCompatActivity {
     private boolean isUserLoggedIn() {
         SharedPreferences prefs = getSharedPreferences("UserSession", MODE_PRIVATE);
         return prefs.getBoolean("isLoggedIn", false);
+    }
+    private void doLogin(String email, String password, Context cont) {
+        ApiService api = RetrofitClient.getApiService();
+        Call<LoginResponse> call = api.login("login", email, password);
+        call.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    LoginResponse resp = response.body();
+                    if (!resp.error) {
+                        Toast.makeText(LoginActivity.this,
+                                "¡Wlecome, " + resp.data.username + "!",
+                                Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(cont, HomeActivity.class));
+                        finish();
+                        // Aquí inicias la siguiente Activity, guardas sesión, etc.
+                    } else {
+                        Toast.makeText(LoginActivity.this,
+                                "Error: " + resp.message,
+                                Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(LoginActivity.this,
+                            "Respuesta no exitosa: " + response.code(),
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Toast.makeText(LoginActivity.this,
+                        "Fallo conexión: " + t.getMessage(),
+                        Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
 

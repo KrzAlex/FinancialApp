@@ -1,12 +1,19 @@
 package com.example.financeeduapp.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.financeeduapp.R;
 
+
 public class LessonDetailActivity extends AppCompatActivity {
+    private static final String TAG = "LessonDetailActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,9 +29,17 @@ public class LessonDetailActivity extends AppCompatActivity {
         // Placeholder until you load lesson content from DB
         tvContent.setText("Lesson content coming soon.");
 
+
         btnQuiz.setOnClickListener(v -> {
-            // Later, connect to quiz for this lesson
-            android.widget.Toast.makeText(this, "Start Quiz for: " + lessonTitle, android.widget.Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "Quiz button clicked");
+            try {
+                Intent intent = new Intent(LessonDetailActivity.this, QuizActivity.class);
+                startActivity(intent);
+                Log.d(TAG, "Successfully started QuizActivity");
+            } catch (Exception e) {
+                Log.e(TAG, "Error starting QuizActivity", e);
+                Toast.makeText(this, "Error opening quiz: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            }
         });
     }
 }

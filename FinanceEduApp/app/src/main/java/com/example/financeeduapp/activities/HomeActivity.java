@@ -26,13 +26,13 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        btnQuiz = findViewById(R.id.buttonQuiz);
+  //      btnQuiz = findViewById(R.id.buttonQuiz);
         btnLessons = findViewById(R.id.buttonLessons);
         btnProfile = findViewById(R.id.buttonProfile);
         btnSettings = findViewById(R.id.buttonSettings);
         btnCalculator = findViewById(R.id.buttonCalculator);
 
-        btnQuiz.setOnClickListener(v -> {
+  /*      btnQuiz.setOnClickListener(v -> {
             Log.d(TAG, "Quiz button clicked");
             try {
                 Intent intent = new Intent(HomeActivity.this, QuizActivity.class);
@@ -42,7 +42,7 @@ public class HomeActivity extends AppCompatActivity {
                 Log.e(TAG, "Error starting QuizActivity", e);
                 Toast.makeText(this, "Error opening quiz: " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
 
         btnLessons.setOnClickListener(v -> {
             Toast.makeText(this, getString(R.string.lessons_clicked), Toast.LENGTH_SHORT).show();

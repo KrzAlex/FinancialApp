@@ -72,4 +72,13 @@
         android:text="Show Correct Answer"
         android:visibility="gone"
         android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buttonGoBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Go back"
+        android:visibility="gone" />
+
 </LinearLayout>

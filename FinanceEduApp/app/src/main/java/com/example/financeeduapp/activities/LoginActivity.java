@@ -68,21 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
-
             doLogin(email, password, this);
-            // ✅ Mock login credentials
-           /* if (email.equals("arda@gmail.com") && password.equals("1")) {
-                // ✅ Save session
-                SharedPreferences.Editor editor = getSharedPreferences("UserSession", MODE_PRIVATE).edit();
-                editor.putBoolean("isLoggedIn", true);
-                editor.apply();
-
-                Toast.makeText(this, getString(R.string.login_success), Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, HomeActivity.class));
-                finish();
-            } else {
-                Toast.makeText(this, getString(R.string.login_failed), Toast.LENGTH_SHORT).show();
-            }*/
         });
 
         forgotPasswordText.setOnClickListener(v -> {
@@ -97,8 +83,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void doLogin(String email, String password, Context cont) {
         ApiService api = RetrofitClient.getApiService();
-        Call<LoginResponse> call = api.login("login", email, password);
-        call.enqueue(new Callback<LoginResponse>() {
+        api.login("login", email, password).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
@@ -107,6 +92,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this,
                                 "¡Wlecome, " + resp.data.username + "!",
                                 Toast.LENGTH_SHORT).show();
+
                         startActivity(new Intent(cont, HomeActivity.class));
                         finish();
                         // Aquí inicias la siguiente Activity, guardas sesión, etc.

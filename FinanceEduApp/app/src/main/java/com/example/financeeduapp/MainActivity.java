@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // Immediately launch HomeActivity
         try {
-
             startActivity(new Intent(this, LoginActivity.class));
         } catch (Exception e) {
             throw new RuntimeException(e);

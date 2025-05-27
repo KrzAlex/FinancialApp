@@ -1,15 +1,25 @@
 package com.example.financeeduapp.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.financeeduapp.R;
+import com.example.financeeduapp.responses.LessonListResponse;
+import com.example.financeeduapp.services.ApiService;
+import com.example.financeeduapp.services.RetrofitClient;
+
 import androidx.constraintlayout.widget.ConstraintLayout;
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Response;
 
 public class LessonsActivity extends AppCompatActivity {
 
@@ -46,7 +56,7 @@ public class LessonsActivity extends AppCompatActivity {
 
         hardButton.setOnClickListener(v -> {
             hideMascot();
-            showLessonsByDifficulty("hard");
+            showLessonsByDifficulty("advanced");
         });
     }
 
@@ -68,39 +78,7 @@ public class LessonsActivity extends AppCompatActivity {
     private void showLessonsByDifficulty(String difficulty) {
         lessonTopicsContainer.removeAllViews();
 
-        List<String> lessonTitles;
-        switch (difficulty.toLowerCase()) {
-            case "beginner":
-                lessonTitles = getBeginnerLessonTitles();
-                break;
-            case "intermediate":
-                lessonTitles = getIntermediateLessonTitles();
-                break;
-            default:
-                lessonTitles = getAdvancedLessonTitles();
-                break;
-        }
-
-        lessonTopicsContainer.setVisibility(View.VISIBLE);
-        findViewById(R.id.buttonsContainer).setVisibility(View.GONE);
-
-        for (String lessonTitle : lessonTitles) {
-            Button btn = new Button(this);
-            btn.setText(lessonTitle);
-            btn.setTextSize(16);
-            btn.setAllCaps(false);
-            btn.setPadding(0, 24, 0, 24);
-            btn.setBackgroundResource(android.R.drawable.btn_default);
-
-            btn.setOnClickListener(view -> {
-                Intent intent = new Intent(this, LessonDetailActivity.class);
-                intent.putExtra("lessonTitle", lessonTitle);
-                // You can later also pass lessonId or more info for DB fetch
-                startActivity(intent);
-            });
-
-            lessonTopicsContainer.addView(btn);
-        }
+        getLessonsDB(this, difficulty.toLowerCase());
     }
 
     private List<String> getBeginnerLessonTitles() {
@@ -131,5 +109,54 @@ public class LessonsActivity extends AppCompatActivity {
         list.add("Financial Independence and FIRE Movement");
         list.add("Alternative Investments and Diversification");
         return list;
+    }
+
+    private void getLessonsDB(Context contx, String difficulty){
+        ApiService api = RetrofitClient.getApiService();
+        api.getLessonsByDiff("getLessonByDiff", difficulty)
+                .enqueue(new retrofit2.Callback<LessonListResponse>() {
+                    @Override
+                    public void onResponse(Call<LessonListResponse> call, Response<LessonListResponse> response) {
+                        if (!response.isSuccessful()) {
+                            Toast.makeText(contx, "Error HTTP: " + response.code(), Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        LessonListResponse body = response.body();
+                        if (body == null || body.isError()) {
+                            String msg = (body != null) ? body.getMessage() : "No lessons availabe";
+                            Toast.makeText(contx, msg, Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        List<String> lessonTitles = body.getData();
+                        // Por ejemplo, actualiza tu RecyclerView:
+                        lessonTopicsContainer.setVisibility(View.VISIBLE);
+                        findViewById(R.id.buttonsContainer).setVisibility(View.GONE);
+
+                        for (String lessonTitle : lessonTitles) {
+                            Button btn = new Button(contx);
+                            btn.setText(lessonTitle);
+                            btn.setTextSize(16);
+                            btn.setAllCaps(false);
+                            btn.setPadding(0, 24, 0, 24);
+                            btn.setBackgroundResource(android.R.drawable.btn_default);
+
+                            btn.setOnClickListener(view -> {
+                                Intent intent = new Intent(contx, LessonDetailActivity.class);
+                                intent.putExtra("lessonTitle", lessonTitle);
+                                // You can later also pass lessonId or more info for DB fetch
+                                startActivity(intent);
+                            });
+
+                            lessonTopicsContainer.addView(btn);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<LessonListResponse> call, Throwable t) {
+                        Toast.makeText(contx, "Falló la petición: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

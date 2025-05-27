@@ -26,7 +26,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
         btnLessons = findViewById(R.id.buttonLessons);
         btnProfile = findViewById(R.id.buttonProfile);
         btnSettings = findViewById(R.id.buttonSettings);

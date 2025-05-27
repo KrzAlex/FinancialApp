@@ -3,6 +3,7 @@ package com.example.financeeduapp.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,7 +20,10 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Response;
 
+
 public class LessonDetailActivity extends AppCompatActivity {
+    private static final String TAG = "LessonDetailActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

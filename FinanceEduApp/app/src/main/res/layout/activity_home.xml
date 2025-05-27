@@ -16,7 +16,6 @@
         android:text="@string/button_lessons"
         android:layout_marginBottom="12dp" />
 
-
     <Button
         android:id="@+id/buttonCalculator"
         android:layout_width="match_parent"
@@ -37,14 +36,6 @@
         android:layout_height="wrap_content"
         android:text="@string/button_settings"
         android:layout_marginBottom="12dp" />
-
-    <Button
-        android:id="@+id/buttonQuiz"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:text="@string/button_quiz"
-        android:visibility="invisible" />
 
 
 </LinearLayout>

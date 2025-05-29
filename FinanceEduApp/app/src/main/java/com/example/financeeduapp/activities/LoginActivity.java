@@ -27,7 +27,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText emailInput, passwordInput;
-    private Button loginButton;
+    private Button loginButton, registerButton;
     private TextView forgotPasswordText;
 
     @Override
@@ -47,12 +47,21 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        setContentView(R.layout.activity_login);
+        try{
+            setContentView(R.layout.activity_login);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         emailInput = findViewById(R.id.editTextEmail);
         passwordInput = findViewById(R.id.editTextPassword);
         loginButton = findViewById(R.id.buttonLogin);
+        registerButton = findViewById(R.id.buttonLRegister);
         forgotPasswordText = findViewById(R.id.textForgotPassword);
+
+        registerButton.setOnClickListener( v -> {
+            startActivity(new Intent(this, RegisterActivity.class));
+        });
 
         loginButton.setOnClickListener(v -> {
             String email = emailInput.getText().toString().trim();

@@ -253,6 +253,78 @@ if ($action === 'getQuestionByLesson') {
     ]);
     exit();
 }
+// ——— Ruta: register ———
+if ($action === 'register') {
+    // Recogemos y saneamos parámetros
+    $username  = trim($_POST['username']  ?? '');
+    $sex       = trim($_POST['sex']       ?? '');
+    $name      = trim($_POST['name']      ?? '');
+    $surname   = trim($_POST['surname']   ?? '');
+    $birthdate = trim($_POST['birthdate'] ?? ''); // formateado 'YYYY-MM-DD'
+    $email     = trim($_POST['email']     ?? '');
+    $password  = trim($_POST['password']  ?? '');
+
+    // Validación básica
+    if (empty($username) || empty($sex) || empty($name) ||
+        empty($surname)  || empty($birthdate) || empty($email) ||
+        empty($password)) {
+        http_response_code(400);
+        echo json_encode([
+            "error"   => true,
+            "message" => "Todos los campos son obligatorios"
+        ]);
+        exit();
+    }
+    // Puedes añadir validación de formato de sex y birthdate aquí
+
+    // Preparar INSERT
+    $stmt = $conn->prepare(
+        "INSERT INTO Users
+            (username, sex, name, surname, birthdate, Email, AccountPassword)
+         VALUES (?,        ?,   ?,    ?,       ?,         ?,     ?)"
+    );
+    $stmt->bind_param(
+        "sssssss",
+        $username,
+        $sex,
+        $name,
+        $surname,
+        $birthdate,
+        $email,
+        $password
+    );
+
+    // Ejecutar y comprobar
+    if (!$stmt->execute()) {
+        http_response_code(400);
+        echo json_encode([
+            "error"   => true,
+            "message" => $stmt->error
+        ]);
+        exit();
+    }
+
+    // Registro OK
+    $newId = $conn->insert_id;
+    echo json_encode([
+        "error"   => false,
+        "message" => "Registro exitoso",
+        "data"    => [
+            "id"        => $newId,
+            "username"  => $username,
+            "sex"       => $sex,
+            "name"      => $name,
+            "surname"   => $surname,
+            "birthdate" => $birthdate,
+            "email"     => $email
+        ]
+    ]);
+
+    $stmt->close();
+    $conn->close();
+    exit();
+}
+
 
 // ——— Acción no válida ———
 http_response_code(400);

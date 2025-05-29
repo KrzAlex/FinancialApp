@@ -39,4 +39,16 @@ public interface ApiService {
             @Field("action") String action,
             @Field("title")  String lessonTitle
     );
+    @FormUrlEncoded
+    @POST("api.php")
+    Call<RegisterResponse> register(
+            @Field("action")    String action,
+            @Field("username")  String username,
+            @Field("sex")       String sex,
+            @Field("name")      String name,
+            @Field("surname")   String surname,
+            @Field("birthdate") String birthdate,
+            @Field("email")     String email,
+            @Field("password")  String password
+    );
 }

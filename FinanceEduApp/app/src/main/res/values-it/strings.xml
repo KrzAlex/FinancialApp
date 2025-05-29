@@ -17,6 +17,17 @@
     <string name="reset_success">La tua richiesta di reimpostazione è stata inviata con successo.</string>
     <string name="reset_error">Inserisci un indirizzo email valido</string>
 
+    <!-- Register Page Strings -->
+    <string name="register_tittle">Registrati a FinanceEduApp</string>
+    <string name="nameR_hint">Nome</string>
+    <string name="surname_hint">Cognome</string>
+    <string name="sex_hint">Sesso</string>
+    <string name="sex_M_hint">Maschio</string>
+    <string name="sex_F_hint">Femmina</string>
+    <string name="register_button">Registrati</string>
+    <string name="username_hint">Nome utente</string>
+    <string name="birthDate_hint">Data di nascita</string>
+
     <!-- HOME PAGE STRINGS -->
     <string name="button_quiz">Inizia il Quiz</string>
     <string name="button_lessons">Lezioni</string>

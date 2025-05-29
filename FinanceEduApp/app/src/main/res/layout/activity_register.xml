@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/editSurname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="@string/surname_hint"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/editRName"
+        app:layout_constraintTop_toBottomOf="@+id/editRName" />
+
+    <EditText
+        android:id="@+id/editUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="@string/username_hint"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/editSurname"
+        app:layout_constraintTop_toBottomOf="@+id/editSurname" />
+
+    <TextView
+        android:id="@+id/registerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="@string/register_tittle"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editRName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="31dp"
+        android:ems="10"
+        android:hint="@string/nameR_hint"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/registerTitle"
+        app:layout_constraintTop_toBottomOf="@+id/registerTitle" />
+
+    <RadioGroup
+        android:id="@+id/radioSexGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/editBirthDate"
+        app:layout_constraintStart_toEndOf="@+id/textSex">
+
+        <RadioButton
+            android:id="@+id/radioMbuton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sex_M_hint" />
+
+        <RadioButton
+            android:id="@+id/radioFButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sex_F_hint" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/editBirthDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="298dp"
+        android:ems="10"
+        android:hint="@string/birthDate_hint"
+        android:inputType="date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editRPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/password_hint"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="@+id/editREmailAddress"
+        app:layout_constraintTop_toBottomOf="@+id/editREmailAddress" />
+
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/register_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editRPassword" />
+
+    <EditText
+        android:id="@+id/editREmailAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/email_hint"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="@+id/editBirthDate"
+        app:layout_constraintTop_toBottomOf="@+id/editBirthDate" />
+
+    <TextView
+        android:id="@+id/textSex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/sex_hint"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/editBirthDate"
+        app:layout_constraintTop_toTopOf="@+id/radioSexGroup" />
+</androidx.constraintlayout.widget.ConstraintLayout>

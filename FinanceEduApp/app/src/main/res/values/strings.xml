@@ -18,6 +18,17 @@
     <string name="reset_success">If the email exists, a reset link has been sent.</string>
     <string name="reset_error">Please enter a valid email address</string>
 
+    <!-- Register Page Strings -->
+    <string name="register_tittle">Register to FinanceEduApp</string>
+    <string name="nameR_hint">Name</string>
+    <string name="surname_hint">Surname</string>
+    <string name="sex_hint">Sex</string>
+    <string name="sex_M_hint">Male</string>
+    <string name="sex_F_hint">Female</string>
+    <string name="register_button">Register</string>
+    <string name="username_hint">Username</string>
+    <string name="birthDate_hint">Birthdate</string>
+
 
     <!-- HOME PAGE STRINGS -->
     <string name="button_quiz">Start Quiz</string>
@@ -72,6 +83,7 @@
         <item>Italiano</item>
         <item>Español</item>
     </string-array>
+    <string name="title_activity_register">RegisterActivity</string>
 
 
 

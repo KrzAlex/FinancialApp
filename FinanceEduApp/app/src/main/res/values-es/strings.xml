@@ -17,6 +17,17 @@
     <string name="reset_success">Si el correo existe, se ha enviado un enlace para restablecer la contraseña.</string>
     <string name="reset_error">Por favor, introduce un correo electrónico válido</string>
 
+    <!-- Register Page Strings -->
+    <string name="register_tittle">Regístrate en FinanceEduApp</string>
+    <string name="nameR_hint">Nombre</string>
+    <string name="surname_hint">Apellido</string>
+    <string name="sex_hint">Sexo</string>
+    <string name="sex_M_hint">Masculino</string>
+    <string name="sex_F_hint">Femenino</string>
+    <string name="register_button">Registrarse</string>
+    <string name="username_hint">Nombre de usuario</string>
+    <string name="birthDate_hint">Fecha de nacimiento</string>
+
     <!-- HOME PAGE STRINGS -->
     <string name="button_quiz">Iniciar Quiz</string>
     <string name="button_lessons">Lecciones</string>

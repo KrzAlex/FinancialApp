@@ -17,6 +17,17 @@
     <string name="reset_success">Eğer e-posta mevcutsa, bir sıfırlama bağlantısı gönderildi.</string>
     <string name="reset_error">Lütfen geçerli bir e-posta adresi girin</string>
 
+    <!-- Register Page Strings -->
+    <string name="register_tittle">FinanceEduApp’e kayıt ol</string>
+    <string name="nameR_hint">İsim</string>
+    <string name="surname_hint">Soyadı</string>
+    <string name="sex_hint">Cinsiyet</string>
+    <string name="sex_M_hint">Erkek</string>
+    <string name="sex_F_hint">Kadın</string>
+    <string name="register_button">Kayıt Ol</string>
+    <string name="username_hint">Kullanıcı adı</string>
+    <string name="birthDate_hint">Doğum tarihi</string>
+
     <!-- HOME PAGE STRINGS -->
     <string name="button_quiz">Teste Başla</string>
     <string name="button_lessons">Dersler</string>
